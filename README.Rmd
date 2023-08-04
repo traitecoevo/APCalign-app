@@ -1,0 +1,28 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+# APCalign-app
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+'APCalign-app' is a Shiny interface to the ['APCalign' R package](https://traitecoevo.github.io/APCalign/).
+The app enables users to standardise their plant taxa names to current, accepted standards by the [Australian Plant Census (APC)](Australian Plant Census (APC))
+
+To run the app:
+
+```{r run}
+shiny::runApp()
+```
+
