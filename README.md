@@ -14,5 +14,10 @@ the [Australian Plant Census (APC)](Australian%20Plant%20Census%20(APC))
 To run the app:
 
 ``` r
-shiny::runApp()
+# install.packages("APCalign")
+# remotes::install_github("traitecoevo/APCalign")
+
+library(shiny)
+
+shiny::runApp("align-app")
 ```

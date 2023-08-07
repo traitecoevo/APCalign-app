@@ -23,6 +23,11 @@ The app enables users to standardise their plant taxa names to current, accepted
 To run the app:
 
 ```{r run}
-shiny::runApp()
+# install.packages("APCalign")
+# remotes::install_github("traitecoevo/APCalign")
+
+library(shiny)
+
+shiny::runApp("align-app")
 ```
 
