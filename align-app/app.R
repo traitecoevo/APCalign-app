@@ -1,6 +1,7 @@
 library(shiny)
 library(DT)
 library(APCalign)
+source("helper.R")
 
 # Load APC resources once
 resources <- load_taxonomic_resources(stable_or_current_data = "stable", version = "0.0.2.9000")
@@ -32,16 +33,18 @@ server <- function(input, output) {
     if (!is.null(input$file_input)) {
       # Read the uploaded file as a data frame
       data_set <- read.csv(input$file_input$datapath)
+      input_names <- data_set[,1]
     } else {
       # If no file is uploaded, use the input from the text box
       # Convert the input string of names to a vector
       input_names <- strsplit(input$names_input, ",")[[1]]
-      # Remove leading and trailing white spaces (if any)
-      input_names <- trimws(input_names)
-      
-      # Create a data frame with the names
-      data_set <- data.frame(Name = input_names)
     }
+    
+    # Remove leading and trailing white spaces (if any)
+    input_names <- trimws(input_names)
+    
+    # Create a taxonomic lookup
+    data_set <- standardise_names(input_names, resources)
     
     # Store the data in the reactive value
     data(data_set)
