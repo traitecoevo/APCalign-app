@@ -11,7 +11,8 @@ ui <- fluidPage(
   titlePanel("APCalign-app"),
   sidebarLayout(
     sidebarPanel(
-      textInput("names_input", "Enter taxa names (separated by commas):", ""),
+      textInput("names_input", "Enter taxa names (separated by commas):",
+                value = "Banksia serrata, Acacia longifolia, Not a species"),
       
       fileInput("file_input", "Upload a .csv file of names"),
       
@@ -61,10 +62,10 @@ server <- function(input, output) {
   # Download the table as a CSV file
   output$download_table <- downloadHandler(
     filename = function() {
-      paste("names_table", ".csv", sep = "")
+      paste(Sys.Date(), "_APCalign_taxa", ".csv", sep = "")
     },
     content = function(file) {
-      write.csv(data(), file)
+      write.csv(data(), filename, row.names = FALSE)
     }
   )
 }
