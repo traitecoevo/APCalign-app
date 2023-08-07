@@ -61,11 +61,9 @@ server <- function(input, output) {
   
   # Download the table as a CSV file
   output$download_table <- downloadHandler(
-    filename = function() {
-      paste(Sys.Date(), "_APCalign_taxa", ".csv", sep = "")
-    },
+    filename = paste0("APCalign_taxa_",Sys.Date(), ".csv"),
     content = function(file) {
-      write.csv(data(), filename, row.names = FALSE)
+      write.csv(data(), file, row.names = FALSE)
     }
   )
 }
