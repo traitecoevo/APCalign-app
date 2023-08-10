@@ -1,5 +1,4 @@
 library(shiny)
-library(DT)
 library(APCalign)
 
 # Load APC resources once
@@ -11,12 +10,28 @@ ui <- fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      textInput("names_input", "Enter taxa names (separated by commas):",
+      p("This app uses the Australian Plant Cenus to standardise plant taxon names."),
+      HTML("<p>For more information, check out the <a href = 'traitecoevo.github.io/APCalign/'> APCalign R package website</a></p>"),
+  
+      br(),
+      
+      textInput("names_input", "Enter taxon names (separated by commas):",
                 value = "Banksia serrata, Acacia longifolia, Not a species"),
       
-      fileInput("file_input", "Upload a .csv file of names"),
+      h5("OR"),
       
+      fileInput("file_input", "Upload a .csv file of taxon names", multiple = FALSE),
       
+      p("Click submit again if you have changed the taxon name input"),
+      
+      radioButtons("one_to_many", 
+                   h5("Handling multiple taxonomic matches"), 
+                   choices = list("Display all" = "return_all", 
+                                  "Collapse to higher taxon" = "collapse_to_higher_taxon", 
+                                  "Most likely species" = "most_likely_species"),
+                   selected = "return_all"),
+      
+      h5("Table display"),
       checkboxInput("full", "Full output"),
       
       actionButton("submit_button", "Submit")
@@ -52,7 +67,10 @@ server <- function(input, output) {
   # Create a taxonomic lookup
   # Store the data in the reactive value
   dataInput <- reactive({
-    create_taxonomic_update_lookup(taxa = input_names, resources = resources, full = input$full)
+    create_taxonomic_update_lookup(taxa = input_names, 
+                                   resources = resources, 
+                                   full = input$full,
+                                   one_to_many = input$one_to_many)
   })
   
   # Store the data in the reactive value
