@@ -19,5 +19,5 @@ To run the app:
 
 library(shiny)
 
-shiny::runApp("align-app")
+runApp("align-app")
 ```
