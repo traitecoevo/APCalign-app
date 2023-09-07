@@ -1,11 +1,18 @@
 library(shiny)
+library(shinythemes)
+library(shinybusy)
 library(APCalign)
+library(DT)
 
 # Load APC resources once
 resources <- load_taxonomic_resources(stable_or_current_data = "stable", version = "0.0.2.9000")
 
 # UI part of the Shiny app
 ui <- fluidPage(
+  theme = shinytheme("cerulean"),
+  
+  add_busy_spinner("hollow-dots", color = "#527DA9", position = "bottom-left"),
+  
   titlePanel("APCalign-app"),
   
   sidebarLayout(
@@ -15,24 +22,44 @@ ui <- fluidPage(
   
       br(),
       
-      textInput("names_input", "Enter taxon names (separated by commas):",
+      radioButtons(
+        "inputType",
+        "How would you like to supply taxon names?",
+        choices = list(
+          "Enter manually (separated by commas)" = "paste",
+          "Upload a .csv" = "upload"
+        ),
+        selected = "paste",
+        inline = TRUE
+      ),
+      
+      conditionalPanel(
+        condition = "input.inputType == 'paste'",
+       
+        textInput("names_input", "",
                 value = "Banksia serrata, Acacia longifolia, Not a species"),
       
-      h5("OR"),
+        p("Click submit again if you have changed the taxon name input")
+      ),
       
-      fileInput("file_input", "Upload a .csv file of taxon names", multiple = FALSE),
+      conditionalPanel(
+        condition = "input.inputType == 'upload'",
+        
+      fileInput("file_input", "", multiple = FALSE, accept = c(".csv"), buttonLabel = "Select file"),
       
-      p("Click submit again if you have changed the taxon name input"),
+      ),
       
-      radioButtons("one_to_many", 
-                   h5("Handling multiple taxonomic matches"), 
-                   choices = list("Display all" = "return_all", 
+      
+      radioButtons("taxonomic_splits", 
+                   h5("Taxonomic splits"), 
+                   choices = list("Most likely species" = "most_likely_species",
                                   "Collapse to higher taxon" = "collapse_to_higher_taxon", 
-                                  "Most likely species" = "most_likely_species"),
-                   selected = "return_all"),
+                                  "Display all" = "return_all" 
+                                  ),
+                   selected = "most_likely_species"),
       
       h5("Table display"),
-      checkboxInput("full", "Full output"),
+      checkboxInput("full", "Full output", value = FALSE),
       
       actionButton("submit_button", "Submit")
     ),
@@ -70,7 +97,7 @@ server <- function(input, output) {
     create_taxonomic_update_lookup(taxa = input_names, 
                                    resources = resources, 
                                    full = input$full,
-                                   one_to_many = input$one_to_many)
+                                   taxonomic_splits = input$taxonomic_splits)
   })
   
   # Store the data in the reactive value
