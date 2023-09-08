@@ -1,16 +1,18 @@
-Package: APCalign-app
-Title: What the Package Does (One Line, Title Case)
+Package: APCalignApp
+Title: Shiny Interface to R Package APCalign
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person(given = "Fonti", family = "Kar", role = c("aut", "ctb"), email = "f.kar@unsw.edu.au", comment = c(ORCID = "0000-0002-2760-3974"))
+Description: APCalignApp allows you to align and update your Australian Plant Names to currently accepted standards set by the Australian Plant Census 
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+Imports: 
+    pkgload,
+    shiny,
+    shinythemes,
+    shinybusy,
+    DT
 Remotes:
-
-  traitecoevo/APCalign
-
+    traitecoevo/APCalign
