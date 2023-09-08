@@ -128,5 +128,3 @@ shinyApp(ui, server)
 
 }
 
-pkgload::load_all(".")
-align_app()
