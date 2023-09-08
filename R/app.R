@@ -4,6 +4,8 @@ library(shinybusy)
 library(APCalign)
 library(DT)
 
+align_app <- function(){
+
 # Load APC resources once
 resources <- load_taxonomic_resources(stable_or_current_data = "stable", version = "0.0.2.9000")
 
@@ -123,3 +125,5 @@ server <- function(input, output) {
 
 # Run the Shiny app
 shinyApp(ui, server)
+
+}
