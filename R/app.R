@@ -1,10 +1,9 @@
 #'Run APCalign-app
 #'
 #' @return Shiny app to open in your browser
+#' @import shiny
 #' @export
-#'
-#' @examples
-#' align_app()
+
 align_app <- function(){
 
 # Load APC resources once
@@ -69,7 +68,7 @@ ui <- fluidPage(
     
     
     mainPanel(
-      DTOutput("names_table"),
+      DT::DTOutput("names_table"),
       downloadButton("download_table", "Download Table")
     )
   )
@@ -129,5 +128,5 @@ shinyApp(ui, server)
 
 }
 
-
-APCalignApp::align_app()
+pkgload::load_all(".")
+align_app()
