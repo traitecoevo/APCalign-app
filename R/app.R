@@ -4,6 +4,8 @@ library(shinybusy)
 library(APCalign)
 library(DT)
 
+align_app <- function(){
+
 # Load APC resources once
 resources <- load_taxonomic_resources(stable_or_current_data = "stable", version = "0.0.2.9000")
 
@@ -17,7 +19,7 @@ ui <- fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      p("This app uses the Australian Plant Cenus to standardise plant taxon names."),
+      p("This app uses the Australian Plant Cenus to align and update plant taxon name strings"),
       HTML("<p>For more information, check out the <a href = 'traitecoevo.github.io/APCalign/'> APCalign R package website</a></p>"),
   
       br(),
@@ -123,3 +125,5 @@ server <- function(input, output) {
 
 # Run the Shiny app
 shinyApp(ui, server)
+
+}
