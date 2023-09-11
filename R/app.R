@@ -1,23 +1,25 @@
-library(shiny)
-library(shinythemes)
-library(shinybusy)
-library(APCalign)
-library(DT)
+#'Run APCalign-app
+#'
+#' @return Shiny app to open in your browser
+#' @import shiny
+#' @export
+
+align_app <- function(){
 
 # Load APC resources once
-resources <- load_taxonomic_resources(stable_or_current_data = "stable", version = "0.0.2.9000")
+resources <- APCalign::load_taxonomic_resources(stable_or_current_data = "stable", version = "0.0.2.9000")
 
 # UI part of the Shiny app
 ui <- fluidPage(
-  theme = shinytheme("cerulean"),
+  theme = shinythemes::shinytheme("cerulean"),
   
-  add_busy_spinner("hollow-dots", color = "#527DA9", position = "bottom-left"),
+  shinybusy::add_busy_spinner("hollow-dots", color = "#527DA9", position = "bottom-left"),
   
   titlePanel("APCalign-app"),
   
   sidebarLayout(
     sidebarPanel(
-      p("This app uses the Australian Plant Cenus to standardise plant taxon names."),
+      p("This app uses the Australian Plant Cenus to align and update plant taxon name strings"),
       HTML("<p>For more information, check out the <a href = 'traitecoevo.github.io/APCalign/'> APCalign R package website</a></p>"),
   
       br(),
@@ -66,7 +68,7 @@ ui <- fluidPage(
     
     
     mainPanel(
-      DTOutput("names_table"),
+      DT::DTOutput("names_table"),
       downloadButton("download_table", "Download Table")
     )
   )
@@ -94,7 +96,7 @@ server <- function(input, output) {
   # Create a taxonomic lookup
   # Store the data in the reactive value
   dataInput <- reactive({
-    create_taxonomic_update_lookup(taxa = input_names, 
+    APCalign::create_taxonomic_update_lookup(taxa = input_names, 
                                    resources = resources, 
                                    full = input$full,
                                    taxonomic_splits = input$taxonomic_splits)
@@ -123,3 +125,6 @@ server <- function(input, output) {
 
 # Run the Shiny app
 shinyApp(ui, server)
+
+}
+
