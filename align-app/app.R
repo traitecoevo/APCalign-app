@@ -104,10 +104,11 @@ server <- function(input, output) {
   data(dataInput())
   
   # Render the sortable data table
-  output$names_table <- renderDataTable(
+  output$names_table <- DT::renderDataTable(
     dataInput(),
     options = list(ordering = TRUE)
   )
+
 
   
   })
