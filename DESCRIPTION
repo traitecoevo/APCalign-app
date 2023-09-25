@@ -19,6 +19,7 @@ Imports:
     shiny,
     shinythemes,
     shinybusy,
-    DT
+    DT,
+    bsplus
 Remotes:
     traitecoevo/APCalign
