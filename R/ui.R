@@ -10,7 +10,7 @@ apcalign_ui <- function(){
     
     sidebarLayout(
       sidebarPanel(
-        p("This app uses the Australian Plant Cenus to align and update plant taxon name strings"),
+        p("This app uses the Australian Plant Census to align and update plant taxon name strings"),
         HTML("<p>For more information, check out the <a href = 'traitecoevo.github.io/APCalign/'> APCalign R package website</a></p>"),
         
         br(),
@@ -54,20 +54,27 @@ apcalign_ui <- function(){
         h5("Table display"),
         checkboxInput("full", "Full output", value = FALSE),
         
-        actionButton("submit_button", "Submit")
+        actionButton("submit_button", "Submit"),
+        
+        downloadButton("download_table", "Download Table")
       ),
       mainPanel(
         tabsetPanel(
           tabPanel(
             "Data", 
-            DT::DTOutput("names_table"),
-            downloadButton("download_table", "Download Table")
+            DT::DTOutput("names_table")
           ),
-          tabPanel(
-            "FAQs"
-          )
+          faqs()
         )
       )
+    ),
+    tags$footer(
+      "Powered by ",
+      tags$a(href = "https://www.unsw.edu.au/science", "UNSW Faculty of Science"), 
+      align = "right", style = "padding: 30px",
+      
+      div("Created by Elizabeth Wenk, Daniel Falster, Will Cornwell and Fonti Kar",  
+          target)
     )
   )
 }
