@@ -15,6 +15,17 @@ apcalign_ui <- function(){
         
         br(),
         
+        tags$div(
+          shinyWidgets::materialSwitch(
+            inputId = "mode",
+            label = "Expert mode", 
+            value = FALSE,
+            status = "primary"
+          )
+          ),
+        
+        br(),
+        
         radioButtons(
           "inputType",
           "How would you like to supply taxon names?",
@@ -26,23 +37,24 @@ apcalign_ui <- function(){
           inline = TRUE
         ),
         
+        # Conditional panel for data input
+        data_input(),
+        
+        # Expert options
         conditionalPanel(
-          condition = "input.inputType == 'paste'",
-          
-          textInput("names_input", "",
-                    value = "Banksia serrata, Acacia longifolia, Not a species"),
-          
-          p("Click submit again if you have changed the taxon name input")
-        ),
+            condition = "input.mode == true",
+            
+            h4("Expert options"),
+            
+            br(),
+            
+            h5("Taxonomic Resources"),
+            checkboxInput("apni", "APNI", value = FALSE)
+            
+            
+          ),
         
-        conditionalPanel(
-          condition = "input.inputType == 'upload'",
-          
-          fileInput("file_input", "", multiple = FALSE, accept = c(".csv"), buttonLabel = "Select file"),
-          
-        ),
-        
-        
+        # Output handling
         radioButtons("taxonomic_splits", 
                      h5("Taxonomic splits"), 
                      choices = list("Most likely species" = "most_likely_species",
