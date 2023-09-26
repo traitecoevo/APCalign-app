@@ -26,7 +26,9 @@ apcalign_server <- function(resources){
         APCalign::create_taxonomic_update_lookup(taxa = input_names, 
                                                  resources = resources, 
                                                  full = input$full,
-                                                 taxonomic_splits = input$taxonomic_splits)
+                                                 taxonomic_splits = input$taxonomic_splits,
+                                                 APNI_matches = input$apni,
+                                                 identifier = input$imprecise)
       })
       
       # Store the data in the reactive value

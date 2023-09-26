@@ -24,11 +24,9 @@ apcalign_ui <- function(){
           )
           ),
         
-        br(),
-        
         radioButtons(
           "inputType",
-          "How would you like to supply taxon names?",
+          h5("How would you like to supply taxon names?"),
           choices = list(
             "Enter manually (separated by commas)" = "paste",
             "Upload a .csv" = "upload"
@@ -46,11 +44,11 @@ apcalign_ui <- function(){
             
             h4("Expert options"),
             
-            br(),
-            
             h5("Taxonomic Resources"),
-            checkboxInput("apni", "APNI", value = FALSE)
+            checkboxInput("apni", "APNI", value = TRUE),
             
+            h5("Fuzzy Matching"),
+            checkboxInput("imprecise", "Imprecise Fuzzy Matching", value = FALSE)
             
           ),
         
