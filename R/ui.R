@@ -15,15 +15,18 @@ apcalign_ui <- function(){
         
         br(),
         
-        tags$div(
-          shinyWidgets::materialSwitch(
-            inputId = "mode",
-            label = "Expert mode", 
-            value = FALSE,
-            status = "primary"
-          )
+        radioButtons(
+          "workflowType",
+          h5("What do you want to do?"),
+          choices = list(
+            "Align + update taxonomy" = "both",
+            "Align taxa" = "align",
+            "Update taxonomy" = "update"
           ),
-        
+          selected = "both",
+          inline = TRUE
+        ),
+
         radioButtons(
           "inputType",
           h5("How would you like to supply taxon names?"),
@@ -38,31 +41,10 @@ apcalign_ui <- function(){
         # Conditional panel for data input
         data_input(),
         
-        # Expert options
-        conditionalPanel(
-            condition = "input.mode == true",
-            
-            h4("Expert options"),
-            
-            h5("Taxonomic Resources"),
-            checkboxInput("apni", "APNI", value = TRUE),
-            
-            h5("Fuzzy Matching"),
-            checkboxInput("imprecise", "Imprecise Fuzzy Matching", value = FALSE)
-            
-          ),
-        
-        # Output handling
-        radioButtons("taxonomic_splits", 
-                     h5("Taxonomic splits"), 
-                     choices = list("Most likely species" = "most_likely_species",
-                                    "Collapse to higher taxon" = "collapse_to_higher_taxon", 
-                                    "Display all" = "return_all" 
-                     ),
-                     selected = "most_likely_species"),
-        
-        h5("Table display"),
-        checkboxInput("full", "Full output", value = FALSE),
+        # Workflow conditional options
+        both_workflow(),
+        align_workflow(),
+        update_workflow(),
         
         actionButton("submit_button", "Submit"),
         
