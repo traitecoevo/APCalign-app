@@ -46,6 +46,7 @@ both_workflow <- function(){
     condition = "input.workflowType == 'both'",
     
     # Coarse level matching 
+    h5("Match method"),
     checkboxInput("imprecise", "Imprecise Fuzzy Matching", value = FALSE),
     
     # Taxonomic Resources
