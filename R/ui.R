@@ -61,10 +61,11 @@ apcalign_ui <- function(){
       mainPanel(
         tabsetPanel(
           tabPanel(
-            "Data", 
+            "Output", 
             DT::DTOutput("names_table")
           ),
-          faqs()
+          get_started(), 
+          faqs(),
         )
       )
     ),

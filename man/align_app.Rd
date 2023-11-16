@@ -4,7 +4,7 @@
 \alias{align_app}
 \title{Run APCalign-app}
 \usage{
-align_app()
+align_app(...)
 }
 \value{
 Shiny app to open in your browser

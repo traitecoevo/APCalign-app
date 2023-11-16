@@ -4,7 +4,7 @@
 \alias{apcalign_server}
 \title{UI part of the Shiny app}
 \usage{
-apcalign_server(...)
+apcalign_server(resources)
 }
 \description{
 UI part of the Shiny app
