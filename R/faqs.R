@@ -25,6 +25,15 @@ faqs <- function(){
            p("Learn more about our ", tags$a("matching algorithim", href = "https://traitecoevo.github.io/APCalign/articles/updating-taxon-names.html", target="_blank")),
            
            h4("3. What if the taxon is not listed in the APC?"),
+           p("The APC is a list of the accepted scientific names for the Australian vascular flora, both native and introduced naturalised taxa, and includes synonyms and misapplications for these names. 
+             The APC covers all published scientific plant names used in an Australian context in the taxonomic literature, but excludes taxa known only from cultivation in Australia.
+             A taxon will not be listed in the APC if:"),
+             tags$ol(
+               tags$li("It is a newly described species that has not yet been reviewed for inclusion in the APC"),
+               tags$li("It is a cultivated non-native taxon that is not (yet) designated as naturalised within Australia"),
+               tags$li("It is a name that has not been linked to a taxon concept accepted by the APC. The Australian Plant Names Index (APNI) includes names documented in the literature but not yet linked to an APC taxon concept"),
+             ),
+             
            
            h4("4. Where can I find the metadata for the columns in the output data"),
            p("The metadata for the output columns are summarised in the ", tags$a("R package documention", href = "https://traitecoevo.github.io/APCalign/reference/create_taxonomic_update_lookup.html", target="_blank")),
