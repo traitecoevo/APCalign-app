@@ -27,11 +27,9 @@ The app can be accessed at: https://posit-connect-unsw.intersect.org.au/APCalign
 
 #### Installation:
 
-This app and its main dependency `APCalign` which is currently not on CRAN. 
-We will need install both of these from GitHub: 
-```{r, eval=FALSE}
-remotes::install_github("traitecoevo/APCalign")
+This app is currently not on CRAN, to install its current development version: 
 
+```{r, eval=FALSE}
 remotes::install_github("traitecoevo/APCalign-app")
 ```
 

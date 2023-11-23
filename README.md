@@ -20,12 +20,10 @@ The app can be accessed at:
 
 #### Installation:
 
-This app and its main dependency `APCalign` which is currently not on
-CRAN. We will need install both of these from GitHub:
+This app is currently not on CRAN, to install its current development
+version:
 
 ``` r
-remotes::install_github("traitecoevo/APCalign")
-
 remotes::install_github("traitecoevo/APCalign-app")
 ```
 
