@@ -12,15 +12,16 @@ knitr::opts_chunk$set(
 )
 ```
 
-# APCalign-app
+# APCalign-app <img src="inst/APCalign_hex_2.svg" align="right" width="200"/>
 
 <!-- badges: start -->
 <!-- badges: end -->
 
 'APCalign-app' is a Shiny interface to the ['APCalign' R package](https://traitecoevo.github.io/APCalign/).
+
 The app enables users to align their Australian plant taxon name strings and update to current, accepted standards by the [Australian Plant Census (APC)](Australian Plant Census (APC))
 
-The app can be accessed at: 
+The app can be accessed at: https://posit-connect-unsw.intersect.org.au/APCalign-app/
 
 ### To run the app locally:
 
@@ -36,7 +37,7 @@ remotes::install_github("traitecoevo/APCalign-app")
 
 #### Load app: 
 ```{r run}
-library(APCalign-app)
+library(APCalignApp)
 
 align_app()
 ```
