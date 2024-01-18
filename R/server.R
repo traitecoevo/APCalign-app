@@ -9,8 +9,7 @@ apcalign_server <- function(resources){
       # Check if a file is uploaded
       if (!is.null(input$file_input)) {
         # Read the uploaded file as a data frame
-        data_set <- read.csv(input$file_input$datapath)
-        input_names <- data_set[,1]
+        input_names <- upload_file(input$file_input$datapath)
       } else {
         # If no file is uploaded, use the input from the text box
         # Convert the input string of names to a vector
