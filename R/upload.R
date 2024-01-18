@@ -5,7 +5,7 @@
 
 upload_file <- function(path){
   # Read in the csv
-  data_set <- read.csv(path)
+  data_set <- utils::read.csv(path)
   
   # Check if first column contains species name
   if(!is.character(data_set[,1]))

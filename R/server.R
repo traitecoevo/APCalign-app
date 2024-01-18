@@ -1,9 +1,10 @@
 #' UI part of the Shiny app
+#' @param resources taxonomic resources from APCalign::load_taxonomic_resources
 apcalign_server <- function(resources){
   
   server <- function(input, output, ...) {
 
-    data <- reactiveVal(NULL)
+    processed_data <- reactiveVal(NULL)
     
     observeEvent(input$submit_button,{
       # Check if a file is uploaded
@@ -29,7 +30,7 @@ apcalign_server <- function(resources){
       })
       
       # Store the data in the reactive value
-      data(dataInput())
+      processed_data(dataInput())
       
       # Render the sortable data table
       output$names_table <- DT::renderDataTable(
@@ -45,7 +46,7 @@ apcalign_server <- function(resources){
     output$download_table <- downloadHandler(
       filename = paste0("APCalign_taxa_",Sys.Date(), ".csv"),
       content = function(file) {
-        write.csv(data(), file, row.names = FALSE)
+        utils::write.csv(processed_data(), file, row.names = FALSE)
       }
     )
   }
