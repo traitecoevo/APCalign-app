@@ -9,7 +9,7 @@ upload_file <- function(path){
   
   # Check if first column contains species name
   if(!is.character(data_set[,1]))
-    abort("The first column must contain taxonomic names - see Getting Started")
+    stop("The first column must contain taxonomic names - see Getting Started")
   
   # Assign the first column as input names
   input_names <- data_set[,1]
