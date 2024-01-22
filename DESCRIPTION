@@ -14,16 +14,18 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Imports: 
-    pkgload,
+Imports:
     shiny,
     shinythemes,
     shinybusy,
     DT,
     bsplus,
-    utils
+    utils,
+    APCalign
 Remotes:
     traitecoevo/APCalign
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    shinytest,
+    pkgload
 Config/testthat/edition: 3

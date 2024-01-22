@@ -6,6 +6,9 @@
 \usage{
 apcalign_server(resources)
 }
+\arguments{
+\item{resources}{taxonomic resources from APCalign::load_taxonomic_resources}
+}
 \description{
 UI part of the Shiny app
 }

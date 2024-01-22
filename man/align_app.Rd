@@ -6,6 +6,9 @@
 \usage{
 align_app(...)
 }
+\arguments{
+\item{...}{arguments passed to shiny::shinyApp}
+}
 \value{
 Shiny app to open in your browser
 }
