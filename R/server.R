@@ -2,7 +2,7 @@
 #' @param resources taxonomic resources from APCalign::load_taxonomic_resources
 apcalign_server <- function(resources){
   
-  server <- function(input, output, ...) {
+  server <- function(input, output, session) {
     
     dataInput <-  eventReactive(input$submit_button, {
       # Check if a file is uploaded
