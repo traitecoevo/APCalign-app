@@ -1,6 +1,7 @@
 #'Run APCalign-app
 #'
 #' @return Shiny app to open in your browser
+#' @param ... arguments passed to shiny::shinyApp
 #' @import shiny
 #' @export
 

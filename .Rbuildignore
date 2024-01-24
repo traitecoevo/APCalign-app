@@ -2,3 +2,6 @@
 ^\.Rproj\.user$
 ^app\.R$
 ^LICENSE\.md$
+^README.Rmd$
+^ignore$
+^rsconnect$

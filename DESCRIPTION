@@ -9,17 +9,23 @@ Authors@R:
   person(given = "Fonti", family = "Kar", role = c("aut", "cre"), email = "f.kar@unsw.edu.au", comment = c(ORCID = "0000-0002-2760-3974")),
   person(given = "Carl", family=  "Boettiger", role = c("ctb"), email = "cboettig@gmail.com", comment = c(ORCID = "0000-0002-1642-628X"))
     )
-Description: APCalignApp allows you to align and update your Australian Plant Names to currently accepted standards set by the Australian Plant Census 
+Description: APCalignApp allows you to align and update your Australian Plant Names to currently accepted standards set by the Australian Plant Census. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
-Imports: 
-    pkgload,
+RoxygenNote: 7.3.1
+Imports:
     shiny,
     shinythemes,
     shinybusy,
     DT,
-    bsplus
+    bsplus,
+    utils,
+    APCalign
 Remotes:
     traitecoevo/APCalign
+Suggests: 
+    testthat (>= 3.0.0),
+    shinytest,
+    pkgload
+Config/testthat/edition: 3
