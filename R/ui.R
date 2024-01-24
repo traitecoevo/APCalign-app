@@ -40,7 +40,18 @@ apcalign_ui <- function(){
           
           fileInput("file_input", "", multiple = FALSE, accept = c(".csv"), buttonLabel = "Select file"),
           
-        ),
+          checkboxInput(
+            "ident",
+            "Include identifier?",
+            value = FALSE
+          )  ,
+          
+          conditionalPanel(
+            condition = "input.ident ==1",
+            
+          varSelectInput("col", "Choose your identifier column", NULL)
+        )
+          ),
         
         
         radioButtons("taxonomic_splits", 
