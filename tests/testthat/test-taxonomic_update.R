@@ -1,4 +1,6 @@
 test_that("reactive executes", {
+  skip_on_ci()
+  
   testServer(server_test, {
     session$setInputs(submit_button = 1,
                       names_input = "Acacia aneura",

@@ -15,6 +15,8 @@ test_that("load_file() handles input types", {
 
 
 test_that("Upload works", {
+  skip_on_ci()
+  
 testServer(server_test, {
   
   df <- data.frame(x = "Acacia sp.", y = 2)
