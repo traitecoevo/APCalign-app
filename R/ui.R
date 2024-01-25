@@ -65,7 +65,7 @@ apcalign_ui <- function(){
         h5("Table display"),
         checkboxInput("full", "Full output", value = FALSE),
         
-        actionButton("submit_button", "Submit"),
+        actionButton("submit", "Submit"),
         
         downloadButton("download_table", "Download Table")
       ),
