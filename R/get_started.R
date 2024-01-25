@@ -11,6 +11,13 @@ get_started <- function(){
            
            p("For larger alignments and updates, we recommend uploading a .csv where the first column are your taxon names, with one name per cell (all other columns are ignored)"),
            
+           
+           h4("Supplying additional identifiers"),
+           
+           p('In cases where there are multiple records for a genus or family alignment e.g. Eucalyptus sp.,
+             you can nominate an additional identifier from another column in your data that is linked to your taxon name e.g. collection site or collector name. 
+             This information is retained under `suggested_name` and clarifies that the records are not identical taxon concepts. The identifier feature is only available via the "Upload" method'),
+           
            h4("Handling of taxonomic splits"),
            p("Taxonomic splits refers to instances where a single taxon concept is subsequently split into multiple taxon concepts. 
              For such taxa, when the aligned_name is the “old” taxon concept name, it is impossible to know which of the currently accepted taxon concepts the name represents."),
