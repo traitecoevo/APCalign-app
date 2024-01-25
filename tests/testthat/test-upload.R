@@ -17,7 +17,7 @@ test_that("load_file() handles input types", {
 test_that("Upload works", {
   skip_on_ci()
   
-testServer(server_test, {
+testServer(server, {
   
   df <- data.frame(x = "Acacia sp.", y = 2)
   path_csv <- tempfile()
@@ -25,12 +25,12 @@ testServer(server_test, {
   
   session$setInputs(inputType = "upload",
                     file_input = list(datapath = path_csv),
-                    submit_button = 1,
+                    submit = 1,
                     full = FALSE,
-                    taxonomic_splits = "most_likely_species"
-                    )
+                    taxonomic_splits = "most_likely_species",
+                    ident= FALSE)
   
-  expect_equal(dataInput()$original_name, df$x)
+  expect_equal(update_lookup()$original_name, df$x)
 }
 )
 })
