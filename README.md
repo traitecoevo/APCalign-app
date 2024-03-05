@@ -14,7 +14,7 @@ and update to current, accepted standards by the [Australian Plant
 Census (APC)](Australian%20Plant%20Census%20(APC))
 
 The app can be accessed at:
-<https://posit-connect-unsw.intersect.org.au/APCalign-app/>
+ https://unsw.shinyapps.io/APCalign-app/
 
 ### To run the app locally:
 
