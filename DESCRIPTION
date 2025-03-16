@@ -22,8 +22,6 @@ Imports:
     bsplus,
     utils,
     APCalign
-Remotes:
-    traitecoevo/APCalign
 Suggests: 
     testthat (>= 3.0.0),
     shinytest,
