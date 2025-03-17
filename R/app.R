@@ -8,7 +8,7 @@
 align_app <- function(...){
 
 # Load APC resources once
-resources <- APCalign::load_taxonomic_resources(stable_or_current_data = "stable", version = "0.0.2.9000")
+resources <- APCalign::load_taxonomic_resources()
 
 # UI part of the Shiny app
 ui <- apcalign_ui()

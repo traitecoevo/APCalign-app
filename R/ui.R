@@ -40,6 +40,8 @@ apcalign_ui <- function(){
           
           fileInput("file_input", "", multiple = FALSE, accept = c(".csv"), buttonLabel = "Select file"),
           
+          varSelectInput("sp_col", "Choose column containing taxon names", NULL),
+          
           checkboxInput(
             "ident",
             "Include identifier?",
@@ -49,7 +51,7 @@ apcalign_ui <- function(){
           conditionalPanel(
             condition = "input.ident ==1",
             
-          varSelectInput("col", "Choose your identifier column", NULL)
+          varSelectInput("col", "Choose column containing additional identifier", NULL)
         )
           ),
         

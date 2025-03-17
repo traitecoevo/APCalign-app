@@ -22,9 +22,16 @@ apcalign_server <- function(resources){
       data <- utils::read.csv(input$file_input$datapath)
       
       input_data(data)
-      input_names(data[,1])
+      
+      updateVarSelectInput(session, "sp_col", data = input_data())
     }
     )
+    
+    # Watch which column user selects as the taxa column
+    observeEvent(input$sp_col, {
+      taxa <-as.character(input$sp_col)
+      input_names(input_data() |> dplyr::pull(taxa))
+    })
     
     # Watch if user wants to supply an identifier 
     observeEvent(input$file_input, {

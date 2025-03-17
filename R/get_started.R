@@ -9,7 +9,7 @@ get_started <- function(){
            p("Taxon names can be typed  directly into the name input box, making sure the names are seperated
              by commas. This method is suited to alignments and updates for a small number of taxa"), 
            
-           p("For larger alignments and updates, we recommend uploading a .csv where the first column are your taxon names, with one name per cell (all other columns are ignored)"),
+           p("For larger alignments and updates, we recommend uploading a .csv and selecting the column which contains your taxon names"),
            
            
            h4("Supplying additional identifiers"),
