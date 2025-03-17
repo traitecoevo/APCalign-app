@@ -13,12 +13,13 @@ Description: APCalignApp allows you to align and update your Australian Plant Na
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Imports:
     shiny (<= 4.2.3),
     shinythemes,
     shinybusy,
     DT,
+    dplyr,
     bsplus,
     utils,
     APCalign
