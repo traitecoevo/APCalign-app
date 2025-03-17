@@ -1,5 +1,5 @@
 #' Load resources once for test
-resources <- APCalign::load_taxonomic_resources(stable_or_current_data = "stable", version = "0.0.2.9000")
+resources <- APCalign::load_taxonomic_resources()
 
 #' Server for app
 server <- function(input, output, session) {

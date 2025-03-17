@@ -20,7 +20,7 @@ get_started <- function(){
            
            h4("Handling of taxonomic splits"),
            p("Taxonomic splits refers to instances where a single taxon concept is subsequently split into multiple taxon concepts. 
-             For such taxa, when the aligned_name is the “old” taxon concept name, it is impossible to know which of the currently accepted taxon concepts the name represents."),
+             For such taxa, when the aligned_name is the 'old' taxon concept name, it is impossible to know which of the currently accepted taxon concepts the name represents."),
            
            p("APCalign-app offers three alternative approaches to handle these instances:"),
            
