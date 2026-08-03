@@ -1,5 +1,6 @@
 get_started <- function(){
-  tabPanel("Get Started",
+  bslib::nav_panel("Get Started",
+           class = "apcalign-prose",
            h3("APCalign-app"),
            
            p(strong("APCalign-app "), 'is a Shiny interface to the R package ', tags$a("APCalign.", href = "https://traitecoevo.github.io/APCalign", target="_blank")," This app aligns and updates Australian plant taxon name strings. 

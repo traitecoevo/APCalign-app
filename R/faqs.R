@@ -1,5 +1,6 @@
 faqs <- function(){
-  tabPanel("FAQS",
+  bslib::nav_panel("FAQs",
+           class = "apcalign-prose",
            h3("Frequently Asked Questions"),
            
            h4("1. What is the Australian Plant Census (APC) and Australian Plant Name Index (APNI)?"), 

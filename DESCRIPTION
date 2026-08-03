@@ -16,7 +16,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports:
     shiny (<= 4.2.3),
-    shinythemes,
+    bslib,
     shinybusy,
     DT,
     dplyr,

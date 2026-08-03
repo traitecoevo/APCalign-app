@@ -69,7 +69,23 @@ apcalign_server <- function(resources){
     # Render the sortable data table
     output$names_table <- DT::renderDataTable(
       update_lookup(),
-      options = list(ordering = TRUE)
+      # scrollX keeps the wide table inside the content region rather than
+      # clipping it; `truncated` (styled in apcalign-app.css) stops long
+      # free-text columns such as aligned_reason from stretching every row.
+      options = list(
+        ordering = TRUE,
+        scrollX = TRUE,
+        columnDefs = list(list(targets = "_all", className = "truncated"))
+      ),
+      # Native tooltip so the truncated text is still readable on hover.
+      callback = DT::JS(
+        "table.on('draw.dt', function() {
+           table.cells().every(function() {
+             var node = this.node();
+             node.title = node.textContent;
+           });
+         }).draw(false);"
+      )
     )
     
     

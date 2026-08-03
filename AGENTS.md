@@ -14,8 +14,14 @@ Census (APC).
   `APCalign::load_taxonomic_resources()` once, then assembles `apcalign_ui()` /
   `apcalign_server()` and runs `shiny::shinyApp()`.
 - **App code in `R/`:** `ui.R` (`apcalign_ui()`), `server.R` (`apcalign_server()`), `global.R`,
-  `get_started.R` and `faqs.R` (UI tab content), `upload.R` (file-upload handling). `inst/` holds
-  the hex logo asset.
+  `get_started.R` and `faqs.R` (UI tab content), `upload.R` (file-upload handling). `inst/www/`
+  holds the app's stylesheet and navbar logo, served under `www/` via `addResourcePath()`.
+- **Styling:** the UI is a `bslib::page_sidebar()` themed to match austraits.org — a `simplex`
+  preset with the AusTraits palette, plus `inst/www/apcalign-app.css`. That stylesheet is kept
+  deliberately in step with `austraits.portal/inst/www/austraits-portal.css` so the two hosted apps
+  read as one platform; change both together. The app is also embedded in an iframe on
+  [austraits.org/apcalign.html](https://austraits.org/apcalign.html), so keep the layout working at
+  narrow widths.
 - **Top-level `app.R`** is the deploy entry point: `pkgload::load_all("."); align_app()` — this is
   what a Posit Connect / shinyapps.io deployment runs.
 - **Run locally** (per the README): `remotes::install_github("traitecoevo/APCalign-app")`, then
