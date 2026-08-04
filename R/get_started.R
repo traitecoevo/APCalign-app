@@ -1,6 +1,23 @@
 get_started <- function(){
   bslib::nav_panel("Get Started",
-           class = "apcalign-prose",
+
+           # Wrapping the prose in a card() (as the AusTraits Data Portal
+           # does for all of its nav_panel content) makes it a proper bslib
+           # fill item: bslib gives cards their own internal scrollbar
+           # (overflow: auto) when their content is taller than the space
+           # available, instead of letting it overflow past the footer. This
+           # is what lets the footer stay always visible without needing any
+           # position: fixed hacks.
+           #
+           # `apcalign-prose` (max-width, for readable line length) is on an
+           # inner div rather than the card/nav_panel itself — putting it on
+           # the outer tab caps the *card* down to that width too, leaving it
+           # looking like a small floating box in a lot of empty space. Here
+           # the card spans the full tab (like the Data Portal's table does),
+           # and only the text inside is width-capped.
+           bslib::card(
+           bslib::card_body(
+           div(class = "apcalign-prose",
            h3("APCalign-app"),
            
            p(strong("APCalign-app "), 'is a Shiny interface to the R package ', tags$a("APCalign.", href = "https://traitecoevo.github.io/APCalign", target="_blank")," This app aligns and updates Australian plant taxon name strings. 
@@ -31,6 +48,8 @@ get_started <- function(){
              tags$li(HTML('<b>Display all</b> which gives you all the currently accepted names that were split from the original <samp>taxon_concept</samp>'))
            )
            )
+           )
+           )
+           )
   )
 }
-

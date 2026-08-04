@@ -116,7 +116,15 @@ apcalign_ui <- function(){
 
       bslib::nav_panel(
         title = "Output",
-        DT::DTOutput("names_table")
+        # Wrapped in a card() so this tab gets its own internal scrollbar
+        # (matching the AusTraits Data Portal's mod_data_table.R) instead of
+        # growing/overflowing the page — see get_started.R for the full
+        # explanation.
+        bslib::card(
+          bslib::card_body(
+            DT::DTOutput("names_table")
+          )
+        )
       ),
       get_started(),
       faqs(),
@@ -124,6 +132,12 @@ apcalign_ui <- function(){
       # Note: the footer belongs on navset_bar, not page_sidebar —
       # page_sidebar() has no `footer` argument, so passing one there is
       # silently swallowed as an HTML attribute and never renders.
+      # Every nav_panel's content above is wrapped in a card(), which bslib
+      # gives its own internal scrollbar (overflow: auto) once its content
+      # is taller than the space available between the tab bar and this
+      # footer. That's what keeps the footer always on screen — the page
+      # itself never needs to scroll, so there's no position: fixed hack
+      # needed here (this matches how the AusTraits Data Portal does it).
       footer = tags$footer(
         "Powered by ",
         tags$a(href = "https://www.unsw.edu.au/science", target = "_blank",

@@ -1,6 +1,15 @@
 faqs <- function(){
   bslib::nav_panel("FAQs",
-           class = "apcalign-prose",
+
+           # See get_started.R for why this content is wrapped in a card()
+           # (internal scroll, footer stays visible) and why `apcalign-prose`
+           # (readable line-length) lives on an inner div instead of the
+           # card/nav_panel — otherwise the card itself gets capped down to
+           # 62rem and looks like a small floating box in a lot of empty
+           # space, instead of spanning the full tab.
+           bslib::card(
+           bslib::card_body(
+           div(class = "apcalign-prose",
            h3("Frequently Asked Questions"),
            
            h4("1. What is the Australian Plant Census (APC) and Australian Plant Name Index (APNI)?"), 
@@ -41,6 +50,8 @@ faqs <- function(){
            
            h4("5. Where can I find further information about this app?"),
            p("APCalign-app is a Shiny interface to the R package APCalign. Learn more about other features at the ", tags$a("package website", href = "https://traitecoevo.github.io/APCalign/", target="_blank"))
-           
+           )
+           )
+           )
   )
 }

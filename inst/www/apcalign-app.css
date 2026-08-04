@@ -205,7 +205,13 @@ table.dataTable td.truncated {
   font-size: 0.9em;
 }
 
-/* --- Footer -------------------------------------------------------------*/
+/* --- Footer -------------------------------------------------------------
+   Deliberately plain, in-flow styling (no position: fixed). Every nav_panel
+   above is wrapped in a card(), which bslib gives its own internal
+   scrollbar once its content outgrows the available space — so the page
+   itself never has to scroll, and this footer just naturally stays put at
+   the bottom of the screen. Matches austraits.portal/inst/www/
+   austraits-portal.css. */
 footer {
   color: var(--at-muted);
   border-top: 1px solid var(--at-line);
