@@ -11,7 +11,9 @@ and update them to current, accepted standards set by the [Australian
 Plant Census
 (APC)](https://biodiversity.org.au/nsl/services/search/taxonomy).
 
-The app can be accessed at: https://app.austraits.org/APCalign-app/
+The app can be accessed at: https://app.austraits.org/APCalign-app/, and is
+also embedded on the AusTraits website at
+[austraits.org/apcalign.html](https://austraits.org/apcalign.html).
 
 <!-- A screenshot of the app could be added here. -->
 
