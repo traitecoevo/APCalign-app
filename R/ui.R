@@ -11,7 +11,8 @@ apcalign_ui <- function(){
 
     # AusTraits site stylesheet (matches austraits.org and the data portal)
     tags$head(
-      tags$link(rel = "stylesheet", type = "text/css", href = "www/apcalign-app.css")
+      tags$link(rel = "stylesheet", type = "text/css", href = "www/apcalign-app.css"),
+      tags$link(rel = "icon", href = "www/APCalign_hex.png", type = "image/png")
     ),
 
     shinybusy::add_busy_spinner(
