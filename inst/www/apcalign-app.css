@@ -193,9 +193,25 @@ table.dataTable td.truncated {
   white-space: nowrap;
 }
 
-/* --- Prose tabs (Get started, FAQs) ------------------------------------*/
+/* --- Prose tabs (Get started, FAQs) --------------------------------------
+   card_header() carries the tab title (see get_started.R/faqs.R), matching
+   the AusTraits Data Portal's App Info tab; h4's here get the same
+   underlined "section heading" treatment as that tab's `hdr` style, but as
+   a shared rule instead of repeating an inline style on every heading. */
 .apcalign-prose {
   max-width: 62rem;
+}
+
+.apcalign-prose h4 {
+  color: var(--at-green-dark);
+  border-bottom: 2px solid var(--at-green);
+  padding-bottom: 0.4rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.apcalign-prose h4:first-child {
+  margin-top: 0;
 }
 
 .apcalign-prose samp {

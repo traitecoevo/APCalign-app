@@ -123,7 +123,7 @@ apcalign_ui <- function(){
         # explanation.
         bslib::card(
           bslib::card_body(
-            DT::DTOutput("names_table")
+            uiOutput("instructions_or_table")
           )
         )
       ),
